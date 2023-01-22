@@ -1,10 +1,12 @@
 
+
+
+// Apna Wala code for calculator
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import { View, Text, StyleSheet, SafeAreaView,TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 
 const App = () => {
-
 const [resultText, setResultText] = useState("");
 const [calcText, setCalcText] = useState("");
 
@@ -46,36 +48,23 @@ const onOperationClick = (operation) => {
 };
 
 
-
-
-
-
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.calcBox}>
       <Text style={styles.calcHeading}>Calculator</Text>
       </View>
 
-      {/* <View style={styles.result}>
-        <Text style={styles.resultText}>{calcText}</Text>
-      </View> */}
-      <View style={styles.calculation}>
-      <Text style={styles.resultText}>{calcText}</Text>
-        <Text style={styles.calculationText}>{resultText}</Text>
-      </View>
-
-      {/* <View style={styles.displayCalcBox}> */}
-        {/* <Text style={styles.calcTextStyle}>{calcText}</Text> */}
+      <View style={styles.displayCalcBox}>
+        <Text>{calcText}</Text>
         {/* <TextInput keyboardType='numeric' maxLength={9}
         caretHidden={true}
-        style={styles.calcTextStyle}>
+        style={styles.inputStyle}>
           0
         </TextInput> */}
-      {/* </View> */}
+      </View>
 
       <View style={styles.calcKeysbox}>
-        <TouchableOpacity onPress={() => onOperationClick("AC")}
-         style={styles.calcKeysGrey}>
+        <TouchableOpacity style={styles.calcKeysGrey}>
           <Text style={styles.keysNumbers}>AC</Text>
         </TouchableOpacity>
 
@@ -87,94 +76,79 @@ const onOperationClick = (operation) => {
           <Text style={styles.keysNumbers}>%</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => onOperationClick("/")}
-         style={styles.calcKeysYellowOrange}>
+        <TouchableOpacity style={styles.calcKeysYellowOrange}>
           <Text style={styles.keysNumbers}>/</Text>
         </TouchableOpacity>
       </View>
 
 
       <View style={styles.calcKeysbox}>
-        <TouchableOpacity  onPress={()=>onButtonClick(7)}
+        <TouchableOpacity  onPress={()=>onButtonClick (7) }
          style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>7</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity  onPress={()=>onButtonClick(8)}
-        style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>8</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>onButtonClick(9)}
-          style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>9</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => onOperationClick("x")}
-         style={styles.calcKeysYellowOrange}>
+        <TouchableOpacity style={styles.calcKeysYellowOrange}>
           <Text style={styles.keysNumbers}>x</Text>
         </TouchableOpacity>
       </View>
 
 
       <View style={styles.calcKeysbox}>
-        <TouchableOpacity onPress={()=>onButtonClick(4)}
-          style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>4</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>onButtonClick(5)}
-          style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>5</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>onButtonClick(6)}
-           style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>6</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => onOperationClick("-")}
-        style={styles.calcKeysYellowOrange}>
+        <TouchableOpacity style={styles.calcKeysYellowOrange}>
           <Text style={styles.keysNumbers}>-</Text>
         </TouchableOpacity>
       </View>
 
       <View style={styles.calcKeysbox}>
-        <TouchableOpacity onPress={()=>onButtonClick(1)}
-          style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>1</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>onButtonClick(2)}
-          style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>2</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>onButtonClick(3)}
-          style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>3</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => onOperationClick("+")}
-        style={styles.calcKeysYellowOrange}>
+        <TouchableOpacity style={styles.calcKeysYellowOrange}>
           <Text style={styles.keysNumbers}>+</Text>
         </TouchableOpacity>
       </View>
 
 
       <View style={styles.calcKeysbox}>
-        <TouchableOpacity onPress={()=>onButtonClick(0)}
-          style={styles.zeroStyle}>
+        <TouchableOpacity style={styles.zeroStyle}>
           <Text style={styles.zeroTextStyle}>0</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>onButtonClick(".")}
-          style={styles.calcNumKeys}>
+        <TouchableOpacity style={styles.calcNumKeys}>
           <Text style={styles.keysNumbers}>.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>onButtonClick("=")}
-          style={styles.calcKeysYellowOrange}>
+        <TouchableOpacity style={styles.calcKeysYellowOrange}>
           <Text style={styles.keysNumbers}>=</Text>
         </TouchableOpacity>
       </View>
@@ -200,17 +174,16 @@ const styles = StyleSheet.create({
    alignItems:'center',
   },
 
-  // displayCalcBox:{
-  //   width: wp('100%'),
-  //   height: hp('15%'),
-  //   flexDirection:'row-reverse',
-  //   borderBottomColor:'#fff',
-  // },
-  // calcTextStyle:{
-  //   fontSize: wp('16%'),
-  //   color: 'white',
-  //   paddingRight: wp('11%'),
-  // },
+  displayCalcBox:{
+    width: wp('100%'),
+    height: hp('15%'),
+    flexDirection:'row-reverse',
+  },
+  inputStyle:{
+    fontSize: wp('16%'),
+    color: 'white',
+    paddingRight: wp('11%'),
+  },
   calcKeysbox:{
     width: wp('100%'),
     marginTop: hp('1%'),
@@ -267,51 +240,6 @@ const styles = StyleSheet.create({
     paddingVertical:wp('3.6%'),
     paddingHorizontal: wp('7%'),
   },
-
-  // result: {
-  //   flex: 2,
-  //   backgroundColor: "grey",
-  //   justifyContent: "center",
-  //   alignItems: "flex-end",
-  // },
-  resultText: {
-    // fontSize: 30,
-    // color: "white",
-    fontSize: wp('14%'),
-    color: 'white',
-    paddingRight: wp('11%'),
-  },
-  calculationText: {
-    // fontSize: 20,
-    // color: "black",
-    fontWeight: "bold",
-    fontSize: wp('16%'),
-    color: 'white',
-    paddingRight: wp('11%'),
-  
-  },
-  calculation: {
-    // flex: 1,
-    // backgroundColor: "#d6d6c2",
-    backgroundColor:'#000',
-    justifyContent: "center",
-    alignItems: "flex-end",
-    width: wp('100%'),
-    height: hp('15%'),
-  },
-
-
-  // displayCalcBox:{
-  //   width: wp('100%'),
-  //   height: hp('15%'),
-  //   flexDirection:'row-reverse',
-  //   borderBottomColor:'#fff',
-  // },
-  // calcTextStyle:{
-  //   fontSize: wp('16%'),
-  //   color: 'white',
-  //   paddingRight: wp('11%'),
-  // },
 })
 
 export default App
